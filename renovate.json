@@ -5,7 +5,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "replacementNameTemplate": "{{{replace 'docker\\.io/' 'index.docker.io' packageName}}}"
+      "replacementNameTemplate": "{{{replace 'docker\\.io/' 'index.docker.io/' packageName}}}"
     }
   ]
 }
