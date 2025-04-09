@@ -1,0 +1,21 @@
+releases:
+  - name: argocd                           # name of this release
+    namespace: argocd                      # target namespace
+    createNamespace: true                  # helm 3.2+ automatically create release namespace (default true)
+    labels:                                # Arbitrary key value pairs for filtering releases
+      env: prod
+    chart: oci://docker.io/bitnamicharts/nginx
+    version: 19.0.4                        # the semver of the chart. range constraint is supported
+    missingFileHandler: Warn # set to either "Error" or "Warn". "Error" instructs helmfile to fail when unable to find a values or secrets file. When "Warn", it prints the file and continues.
+
+    # will attempt to decrypt secrets using helm-secrets plugin
+    values:
+      - values.yaml
+    verify: false
+    wait: true
+    timeout: 600
+    recreatePods: true
+    force: false
+    installed: true
+    atomic: true
+    cleanupOnFail: false

@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "replacementNameTemplate": "{{{replace 'docker\\.io/' 'index.docker.io' packageName}}}"
+    }
+  ]
+}
